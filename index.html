@@ -66,9 +66,18 @@
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
+        const descriptions = [
+            'Канал с актуальными советами по криптовалютам.',
+            'Все последние новости из мира криптовалют.',
+            'Обсуждение стратегии торговли в Cosmos.',
+            'Аналитика по TON и смежным проектам.',
+            'Все деловые новости, связанные с TON.'
+        ];
+
         function showSlide(index) {
             const offset = -index * 300;
             document.querySelector('.carousel').style.transform = `translateX(${offset}px)`;
+            showDetails(index);  // Обновляем описание при смене слайда
         }
 
         function prevSlide() {
@@ -82,15 +91,11 @@
         }
 
         function showDetails(index) {
-            const descriptions = [
-                'Канал с актуальными советами по криптовалютам.',
-                'Все последние новости из мира криптовалют.',
-                'Обсуждение стратегии торговли в Cosmos.',
-                'Аналитика по TON и смежным проектам.',
-                'Все деловые новости, связанные с TON.'
-            ];
             document.getElementById('description').textContent = descriptions[index];
         }
+
+        // Инициализация первого слайда
+        showDetails(currentIndex);
     </script>
 </body>
 </html>
