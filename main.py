@@ -1,16 +1,24 @@
-import telebot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+import asyncio
+from aiogram import Bot, Dispatcher, types
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.filters import Command
 
-TOKEN = "7792197713:AAHWld468uMzSG0bPWHyC6AF_Dhes1DzCeo"  # Замените на ваш токен бота
-bot = telebot.TeleBot(TOKEN)
+TOKEN = "YOUR_BOT_TOKEN_HERE"  # Замените на ваш токен
 
-@bot.message_handler(commands=['start'])
-def start_message(message):
-    keyboard = InlineKeyboardMarkup()
-    button = InlineKeyboardButton("Открыть Mini-App", web_app=InlineKeyboardButton.WebAppInfo("https://prostoyy2008.github.io/BotMiniAApp/"))
-    keyboard.add(button)
-    
-    bot.send_message(message.chat.id, "Добрый!", reply_markup=keyboard)
+bot = Bot(token=TOKEN)
+dp = Dispatcher()
+
+@dp.message(Command("start"))
+async def start_command(message: types.Message):
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Открыть mini-app", web_app=types.WebAppInfo(url="https://prostoyy2008.github.io/BotMiniAApp/"))]
+        ]
+    )
+    await message.answer("Добрый!", reply_markup=keyboard)
+
+async def main():
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    bot.polling(none_stop=True)
+    asyncio.run(main())
