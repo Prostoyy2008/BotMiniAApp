@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      background-image: url('fonminiappgoluboy.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .balance {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+    .korovka {
+      width: 50%;
+      max-width: 300px;
+      transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .korovka:hover {
+      transform: scale(0.9);
+      border: solid black 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="balance">Баланс: <span id="balance">0</span> $CRA</div>
+  <img src="korovka.jpg" alt="Коровкааа" class="korovka" onclick="increaseBalance()">
+
+  <script>
+    let tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let userId = tg.initDataUnsafe?.user?.id || 0;
+    let balance = 0;
+    const API_URL = "http://127.0.0.1:4000"; // Замени на URL вашего API
+
+    async function fetchBalance() {
+      try {
+        let response = await fetch(`${API_URL}/balance?user_id=${userId}`);
+        let data = await response.json();
+        balance = data.balance;
+        document.getElementById("balance").textContent = balance;
+      } catch (error) {
+        console.error("Ошибка получения баланса:", error);
+      }
+    }
+
+    async function increaseBalance() {
+      balance += 10;
+      document.getElementById("balance").textContent = balance;
+
+      try {
+        await fetch(`${API_URL}/update_balance`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_id: userId, amount: 10 })
+        });
+      } catch (error) {
+        console.error("Ошибка обновления баланса:", error);
+      }
+    }
+
+    fetchBalance();
+  </script>
+</body>
+</html>
