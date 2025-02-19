@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин Telegram Каналов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Магазин Telegram Каналов</h1>
+    </header>
+
+    <div class="product-container">
+        <div class="product" id="product-1">
+            <img src="https://via.placeholder.com/300x200" alt="Crypto Advice">
+            <h3>Crypto Advice</h3>
+            <p>Цена: $1500</p>
+            <div class="buttons">
+                <button onclick="showDetails(0)">Подробнее</button>
+                <a href="https://t.me/cryptoadvice" target="_blank"><button>Перейти</button></a>
+            </div>
+        </div>
+        <div class="product" id="product-2">
+            <img src="https://via.placeholder.com/300x200" alt="Infinity Crypto News">
+            <h3>Infinity Crypto News</h3>
+            <p>Цена: $1350</p>
+            <div class="buttons">
+                <button onclick="showDetails(1)">Подробнее</button>
+                <a href="https://t.me/infinitycryptonews" target="_blank"><button>Перейти</button></a>
+            </div>
+        </div>
+        <div class="product" id="product-3">
+            <img src="https://via.placeholder.com/300x200" alt="COSMOSTRD">
+            <h3>COSMOSTRD</h3>
+            <p>Цена: $150</p>
+            <div class="buttons">
+                <button onclick="showDetails(2)">Подробнее</button>
+                <a href="https://t.me/COSMOSTRD" target="_blank"><button>Перейти</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="description-container">
+        <h2 id="product-title">Описание товара</h2>
+        <p id="product-description">Выберите товар для подробного описания</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Магазин Telegram Каналов</p>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                name: "Crypto Advice",
+                description: "Канал с актуальными советами по криптовалютам.",
+                link: "https://t.me/cryptoadvice"
+            },
+            {
+                name: "Infinity Crypto News",
+                description: "Все последние новости из мира криптовалют.",
+                link: "https://t.me/infinitycryptonews"
+            },
+            {
+                name: "COSMOSTRD",
+                description: "Обсуждение стратегии торговли в Cosmos.",
+                link: "https://t.me/COSMOSTRD"
+            }
+        ];
+
+        function showDetails(index) {
+            const product = products[index];
+            document.getElementById('product-title').textContent = product.name;
+            document.getElementById('product-description').textContent = product.description;
+        }
+    </script>
+</body>
+</html>
