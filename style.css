@@ -1,0 +1,134 @@
+/* Общие стили */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background-color: #6a5acd; /* Лавандовый фон */
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Контейнер товара */
+.product-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.product {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Уменьшаем размер для мобильного */
+    max-width: 320px; /* Максимальная ширина */
+    height: 380px; /* Размер карточки увеличен до 380px */
+    margin: 10px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Страница с подробным описанием */
+.description-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 320px;
+    font-size: 14px;
+}
+
+.description-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #6a5acd;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Адаптация для 375x600 устройства */
+@media (max-width: 375px) {
+    header {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .product-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .product {
+        width: 100%; /* Полная ширина для мобильных */
+        max-width: 320px;
+        height: 380px; /* Увеличиваем высоту карточки */
+        margin-bottom: 15px;
+    }
+
+    .buttons button {
+        width: 100%; /* Кнопка растягивается на всю ширину */
+    }
+
+    .description-container {
+        padding: 12px;
+    }
+
+    footer {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+/* Стили только для основной страницы */
+.index-page .product {
+    width: 120%; /* Увеличиваем ширину карточки на 50% */
+    max-width: 480px; /* Максимальная ширина для основной страницы */
+    height: 400px; /* Увеличиваем высоту карточки на 20px (380px + 20px) */
+}
