@@ -4,100 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Продажа каналов Telegram</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            width: 300px;
-            position: relative;
-        }
-        .slide {
-            min-width: 100%;
-            transition: transform 0.5s;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .buttons {
-            margin-top: 10px;
-        }
-        .buttons button {
-            margin: 5px;
-            padding: 8px 12px;
-            border: none;
-            background: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .buttons button:hover {
-            background: #0056b3;
-        }
-        .carousel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="slide">
-                <h3>Crypto Advice</h3>
-                <p>Цена: $1500</p>
-                <div class="buttons">
-                    <button onclick="showDetails(0)">Подробнее</button>
-                    <a href="https://t.me/cryptoadvice" target="_blank"><button>Перейти</button></a>
+    <div class="banner"></div> <!-- Верхний баннер -->
+
+    <div class="side-border">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="slide">
+                    <h3>Crypto Advice</h3>
+                    <p>Цена: $1500</p>
+                    <div class="buttons">
+                        <button onclick="showDetails(0)">Подробнее</button>
+                        <a href="https://t.me/cryptoadvice" target="_blank"><button>Перейти</button></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Infinity Crypto News</h3>
+                    <p>Цена: $1350</p>
+                    <div class="buttons">
+                        <button onclick="showDetails(1)">Подробнее</button>
+                        <a href="https://t.me/infinitycryptonews" target="_blank"><button>Перейти</button></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>COSMOSTRD</h3>
+                    <p>Цена: $150</p>
+                    <div class="buttons">
+                        <button onclick="showDetails(2)">Подробнее</button>
+                        <a href="https://t.me/COSMOSTRD" target="_blank"><button>Перейти</button></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>We Chop Ton</h3>
+                    <p>Цена: $550</p>
+                    <div class="buttons">
+                        <button onclick="showDetails(3)">Подробнее</button>
+                        <a href="https://t.me/WeChopTon" target="_blank"><button>Перейти</button></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Delo v Ton</h3>
+                    <p>Цена: $850</p>
+                    <div class="buttons">
+                        <button onclick="showDetails(4)">Подробнее</button>
+                        <a href="https://t.me/Delo_vton" target="_blank"><button>Перейти</button></a>
+                    </div>
                 </div>
             </div>
-            <div class="slide">
-                <h3>Infinity Crypto News</h3>
-                <p>Цена: $1350</p>
-                <div class="buttons">
-                    <button onclick="showDetails(1)">Подробнее</button>
-                    <a href="https://t.me/infinitycryptonews" target="_blank"><button>Перейти</button></a>
-                </div>
-            </div>
-            <div class="slide">
-                <h3>COSMOSTRD</h3>
-                <p>Цена: $150</p>
-                <div class="buttons">
-                    <button onclick="showDetails(2)">Подробнее</button>
-                    <a href="https://t.me/COSMOSTRD" target="_blank"><button>Перейти</button></a>
-                </div>
-            </div>
-            <div class="slide">
-                <h3>We Chop Ton</h3>
-                <p>Цена: $550</p>
-                <div class="buttons">
-                    <button onclick="showDetails(3)">Подробнее</button>
-                    <a href="https://t.me/WeChopTon" target="_blank"><button>Перейти</button></a>
-                </div>
-            </div>
-            <div class="slide">
-                <h3>Delo v Ton</h3>
-                <p>Цена: $850</p>
-                <div class="buttons">
-                    <button onclick="showDetails(4)">Подробнее</button>
-                    <a href="https://t.me/Delo_vton" target="_blank"><button>Перейти</button></a>
-                </div>
-            </div>
+            <button onclick="prevSlide()">&#10094; Назад</button>
+            <button onclick="nextSlide()">Вперёд &#10095;</button>
+            <p id="description"></p>
         </div>
-        <button onclick="prevSlide()">&#10094; Назад</button>
-        <button onclick="nextSlide()">Вперёд &#10095;</button>
-        <p id="description"></p>
     </div>
+
+    <div class="banner"></div> <!-- Нижний баннер -->
 
     <script>
         let currentIndex = 0;

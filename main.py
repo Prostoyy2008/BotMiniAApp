@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 
-TOKEN = "YOUR_BOT_TOKEN_HERE"  # Замените на ваш токен
+TOKEN = "7792197713:AAHWld468uMzSG0bPWHyC6AF_Dhes1DzCeo"  # Замените на ваш токен
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
