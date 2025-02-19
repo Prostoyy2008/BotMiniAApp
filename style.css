@@ -1,0 +1,125 @@
+/* Общие стили */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background-color: #6a5acd;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Контейнер товара на главной странице */
+.index-page .product-container {
+    display: flex;  /* Используем флекс-контейнер для горизонтального расположения */
+    gap: 10px;  /* Отступы между карточками */
+    padding: 0 10px;  /* Добавляем отступы по бокам контейнера */
+    justify-content: space-between;  /* Для выравнивания карточек */
+    flex-wrap: wrap;  /* Позволяет карточкам переноситься на новую строку */
+}
+
+/* Карточка товара на главной странице */
+.index-page .product {
+    width: calc(50% - 10px);  /* Каждая из первых двух карточек будет занимать 50% минус отступ */
+    height: auto;  /* Карточка будет растягиваться по содержимому */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Для третьей карточки (Cosmostrd) */
+.index-page .product-container:last-child .product {
+    width: 100%;  /* Третья карточка будет занимать всю ширину */
+    margin-top: 10px;  /* Добавляем небольшой отступ сверху */
+}
+
+/* Кнопка внутри карточки */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;  /* Добавляем отступ сверху для кнопки */
+}
+
+.buttons button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Страница с подробным описанием */
+.description-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 360px;
+    font-size: 14px;
+}
+
+.description-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Кнопки на страницах подробностей */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+}
+
+.nav-buttons button {
+    width: 48%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    background-color: #218838;
+}
+
+/* Футер */
+footer {
+    background-color: #6a5acd;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
