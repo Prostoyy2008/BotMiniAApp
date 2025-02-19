@@ -1,0 +1,141 @@
+/* Основные стили для страницы */
+html, body {
+    touch-action: manipulation; /* Отключаем жесты прокрутки и масштабирования */
+    user-select: none; /* Отключение выделения текста */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Стили для шапки */
+header {
+    background-color: #6a5acd; /* Лавандовый фон */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Стили для контейнера с продуктами */
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.product {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 18px;
+    color: #777;
+}
+
+/* Стили для кнопок */
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Контейнер с описанием продукта */
+.description-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: center;
+}
+
+#product-title {
+    font-size: 22px;
+    color: #333;
+}
+
+#product-description {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Стили для футера */
+footer {
+    background-color: #6a5acd; /* Лавандовый фон */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 600px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%; /* Уменьшаем ширину продуктов на мобильных устройствах */
+    }
+}
+
+/* Отключение масштабирования на мобильных устройствах */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+html, body {
+    touch-action: manipulation;
+    user-select: none;
+}
+
+/* Избегаем горизонтальной прокрутки */
+body {
+    overflow-x: hidden;
+}
+
+/* Отключаем масштабирование на мобильных устройствах с помощью meta-тега */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px; /* Уменьшаем размер шрифта на мобильных */
+    }
+}
