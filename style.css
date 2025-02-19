@@ -1,0 +1,124 @@
+/* Основной фон страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F9F9FF; /* Лавандово-белый фон */
+}
+
+/* Шапка сайта */
+header {
+    background-color: #E6E6FA; /* Лаванда */
+    color: #4B0082;  /* Темный фиолетовый для текста */
+    padding: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 5px solid #D1C6E1;  /* Легкая лавандовая линия снизу */
+}
+
+/* Контейнер с товарами */
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+    flex-wrap: wrap;
+}
+
+/* Карточка товара */
+.product {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid #D1C6E1;  /* Лаванда вокруг карточки */
+}
+
+.product:hover {
+    transform: scale(1.05);  /* Легкое увеличение при наведении */
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Заголовок товара */
+.product h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #4B0082;  /* Темно-фиолетовый цвет текста для заголовков */
+}
+
+/* Цена товара */
+.product p {
+    color: #888;
+    font-size: 16px;
+}
+
+/* Кнопки под товарами */
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    background-color: #8A2BE2;  /* Лавандовый цвет кнопок */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.buttons button:hover {
+    background-color: #7A1EC0;  /* Темный лавандовый оттенок при наведении */
+}
+
+/* Описание товара */
+.description-container {
+    background-color: white;
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #D1C6E1;
+}
+
+footer {
+    background-color: #E6E6FA;  /* Лаванда */
+    color: #4B0082;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+    }
+
+    .description-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
