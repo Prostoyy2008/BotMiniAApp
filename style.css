@@ -1,41 +1,44 @@
 body {
-    background-color: white;
-    font-family: "Arial Black", sans-serif; /* Жирный шрифт */
-    font-size: 20px; /* Увеличенный шрифт */
-    color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
     text-align: center;
 }
 
-.banner {
-    background-color: #E6E6FA; /* Лавандовый */
-    height: 100px;
-    width: 100%;
-}
-
-.carousel-container {
+.product-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    justify-content: space-around;
+    margin: 20px;
 }
 
-.carousel {
-    display: flex;
-    overflow: hidden;
-    width: 300px;
-    position: relative;
-}
-
-.slide {
-    min-width: 100%;
-    transition: transform 0.5s;
+.product {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.product p {
+    color: #888;
 }
 
 .buttons {
@@ -43,21 +46,32 @@ body {
 }
 
 .buttons button {
-    margin: 5px;
-    padding: 8px 12px;
-    border: none;
-    background: #007bff;
+    background-color: #007bff;
     color: white;
-    cursor: pointer;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .buttons button:hover {
-    background: #0056b3;
+    background-color: #0056b3;
 }
 
-.side-border {
-    border-left: 5px solid #E6E6FA; /* Тонкие лавандовые линии по бокам */
-    border-right: 5px solid #E6E6FA;
+.description-container {
+    background-color: #fff;
+    margin: 20px;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

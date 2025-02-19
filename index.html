@@ -3,99 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Продажа каналов Telegram</title>
+    <title>Магазин Telegram Каналов</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner"></div> <!-- Верхний баннер -->
+    <header>
+        <div class="header">
+            <h1>Магазин Telegram Каналов</h1>
+        </div>
+    </header>
 
-    <div class="side-border">
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="slide">
-                    <h3>Crypto Advice</h3>
-                    <p>Цена: $1500</p>
-                    <div class="buttons">
-                        <button onclick="showDetails(0)">Подробнее</button>
-                        <a href="https://t.me/cryptoadvice" target="_blank"><button>Перейти</button></a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <h3>Infinity Crypto News</h3>
-                    <p>Цена: $1350</p>
-                    <div class="buttons">
-                        <button onclick="showDetails(1)">Подробнее</button>
-                        <a href="https://t.me/infinitycryptonews" target="_blank"><button>Перейти</button></a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <h3>COSMOSTRD</h3>
-                    <p>Цена: $150</p>
-                    <div class="buttons">
-                        <button onclick="showDetails(2)">Подробнее</button>
-                        <a href="https://t.me/COSMOSTRD" target="_blank"><button>Перейти</button></a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <h3>We Chop Ton</h3>
-                    <p>Цена: $550</p>
-                    <div class="buttons">
-                        <button onclick="showDetails(3)">Подробнее</button>
-                        <a href="https://t.me/WeChopTon" target="_blank"><button>Перейти</button></a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <h3>Delo v Ton</h3>
-                    <p>Цена: $850</p>
-                    <div class="buttons">
-                        <button onclick="showDetails(4)">Подробнее</button>
-                        <a href="https://t.me/Delo_vton" target="_blank"><button>Перейти</button></a>
-                    </div>
-                </div>
+    <div class="product-container">
+        <div class="product" id="product-1">
+            <img src="https://via.placeholder.com/300x200" alt="Crypto Advice">
+            <h3>Crypto Advice</h3>
+            <p>Цена: $1500</p>
+            <div class="buttons">
+                <button onclick="showDetails(0)">Подробнее</button>
+                <a href="https://t.me/cryptoadvice" target="_blank"><button>Перейти</button></a>
             </div>
-            <button onclick="prevSlide()">&#10094; Назад</button>
-            <button onclick="nextSlide()">Вперёд &#10095;</button>
-            <p id="description"></p>
+        </div>
+        <div class="product" id="product-2">
+            <img src="https://via.placeholder.com/300x200" alt="Infinity Crypto News">
+            <h3>Infinity Crypto News</h3>
+            <p>Цена: $1350</p>
+            <div class="buttons">
+                <button onclick="showDetails(1)">Подробнее</button>
+                <a href="https://t.me/infinitycryptonews" target="_blank"><button>Перейти</button></a>
+            </div>
+        </div>
+        <div class="product" id="product-3">
+            <img src="https://via.placeholder.com/300x200" alt="COSMOSTRD">
+            <h3>COSMOSTRD</h3>
+            <p>Цена: $150</p>
+            <div class="buttons">
+                <button onclick="showDetails(2)">Подробнее</button>
+                <a href="https://t.me/COSMOSTRD" target="_blank"><button>Перейти</button></a>
+            </div>
         </div>
     </div>
 
-    <div class="banner"></div> <!-- Нижний баннер -->
+    <div class="description-container">
+        <h2 id="product-title">Описание товара</h2>
+        <p id="product-description">Выберите товар для подробного описания</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Магазин Telegram Каналов</p>
+    </footer>
 
     <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-
-        const descriptions = [
-            'Канал с актуальными советами по криптовалютам.',
-            'Все последние новости из мира криптовалют.',
-            'Обсуждение стратегии торговли в Cosmos.',
-            'Аналитика по TON и смежным проектам.',
-            'Все деловые новости, связанные с TON.'
+        const products = [
+            {
+                name: "Crypto Advice",
+                description: "Канал с актуальными советами по криптовалютам.",
+                link: "https://t.me/cryptoadvice"
+            },
+            {
+                name: "Infinity Crypto News",
+                description: "Все последние новости из мира криптовалют.",
+                link: "https://t.me/infinitycryptonews"
+            },
+            {
+                name: "COSMOSTRD",
+                description: "Обсуждение стратегии торговли в Cosmos.",
+                link: "https://t.me/COSMOSTRD"
+            }
         ];
 
-        function showSlide(index) {
-            const offset = -index * 300;
-            document.querySelector('.carousel').style.transform = `translateX(${offset}px)`;
-            showDetails(index);  // Обновляем описание при смене слайда
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
-            showSlide(currentIndex);
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
-            showSlide(currentIndex);
-        }
-
         function showDetails(index) {
-            document.getElementById('description').textContent = descriptions[index];
+            const product = products[index];
+            document.getElementById('product-title').textContent = product.name;
+            document.getElementById('product-description').textContent = product.description;
         }
-
-        // Инициализация первого слайда
-        showDetails(currentIndex);
     </script>
 </body>
 </html>
